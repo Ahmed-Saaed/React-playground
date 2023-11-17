@@ -27,7 +27,7 @@ ReactFC.fcRoot(FusionCharts, Column2D, FusionTheme);
 const Pie3d = ({data}) => {
   const chartConfigs = {
     type: 'pie3d', // The chart type
-    width: '700', // Width of the chart
+    width: '100%', // Width of the chart
     height: '400', // Height of the chart
     dataFormat: 'json', // Data type
     dataSource: {
@@ -36,8 +36,8 @@ const Pie3d = ({data}) => {
         //Set the chart caption
         caption: 'Languages',
         theme: 'fusion',
-        pieRadius: '45'
-        palette:
+        pieRadius: '45%',
+        palette: '',
       },
       // Chart Data
       data,
