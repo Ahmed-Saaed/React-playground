@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const productionUrl = 'https://strapi-store-server.onrender.com/api';
+const productionUrl = ' https://strapi-store-server.onrender.com/api';
 
 export const customFetch = axios.create({
   baseURL: productionUrl,
@@ -14,12 +14,9 @@ export const formatPrice = (price) => {
   return dollarsAmount;
 };
 
-// this how we can create the select input options dynamically
-
 export const generateAmountOptions = (number) => {
-  return Array.from({length: number}, (_, index) => {
+  return Array.from({ length: number }, (_, index) => {
     const amount = index + 1;
-
     return (
       <option key={amount} value={amount}>
         {amount}

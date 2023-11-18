@@ -1,17 +1,18 @@
-import {Form, redirect} from 'react-router-dom';
+import { Form, redirect } from 'react-router-dom';
 import FormInput from './FormInput';
 import SubmitBtn from './SubmitBtn';
-import {customFetch, formatPrice} from '../utils';
-import {toast} from 'react-toastify';
-import {clearCart} from '../features/cart/cartSlice';
+import { customFetch, formatPrice } from '../utils';
+import { toast } from 'react-toastify';
+import { clearCart } from '../features/cart/cartSlice';
 
 export const action =
   (store, queryClient) =>
-  async ({request}) => {
+  async ({ request }) => {
     const formData = await request.formData();
-    const {name, address} = Object.fromEntries(formData);
+    const { name, address } = Object.fromEntries(formData);
     const user = store.getState().userState.user;
-    const {cartItems, orderTotal, numItemsInCart} = store.getState().cartState;
+    const { cartItems, orderTotal, numItemsInCart } =
+      store.getState().cartState;
 
     const info = {
       name,
@@ -25,7 +26,7 @@ export const action =
     try {
       const response = await customFetch.post(
         '/orders',
-        {data: info},
+        { data: info },
         {
           headers: {
             Authorization: `Bearer ${user.token}`,

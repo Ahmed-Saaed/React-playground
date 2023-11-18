@@ -1,17 +1,18 @@
-import {formatPrice, generateAmountOptions} from '../utils';
-import {removeItem, editItem} from '../features/cart/cartSlice';
-import {useDispatch} from 'react-redux';
-const CartItem = ({cartItem}) => {
+import { formatPrice, generateAmountOptions } from '../utils';
+import { removeItem, editItem } from '../features/cart/cartSlice';
+import { useDispatch } from 'react-redux';
+const CartItem = ({ cartItem }) => {
   const dispatch = useDispatch();
 
   const removeItemFromTheCart = () => {
-    dispatch(removeItem({cartID}));
+    dispatch(removeItem({ cartID }));
   };
   const handleAmount = (e) => {
-    dispatch(editItem({cartID, amount: parseInt(e.target.value)}));
+    dispatch(editItem({ cartID, amount: parseInt(e.target.value) }));
   };
 
-  const {cartID, title, price, image, amount, company, productColor} = cartItem;
+  const { cartID, title, price, image, amount, company, productColor } =
+    cartItem;
 
   return (
     <article
@@ -37,7 +38,7 @@ const CartItem = ({cartItem}) => {
           color :
           <span
             className='badge badge-sm'
-            style={{backgroundColor: productColor}}
+            style={{ backgroundColor: productColor }}
           ></span>
         </p>
       </div>

@@ -1,6 +1,4 @@
-import React from 'react';
-
-const FormSelect = ({label, name, list, defaultValue, size}) => {
+const FormSelect = ({ label, name, list, defaultValue, size }) => {
   return (
     <div className='form-control'>
       <label htmlFor={name} className='label'>
@@ -9,12 +7,12 @@ const FormSelect = ({label, name, list, defaultValue, size}) => {
       <select
         name={name}
         id={name}
-        className={`select select-borderd ${size}`}
+        className={`select select-bordered ${size}`}
         defaultValue={defaultValue}
       >
         {list.map((item) => {
           return (
-            <option value={item} key={item}>
+            <option key={item} value={item}>
               {item}
             </option>
           );
@@ -23,5 +21,4 @@ const FormSelect = ({label, name, list, defaultValue, size}) => {
     </div>
   );
 };
-
 export default FormSelect;

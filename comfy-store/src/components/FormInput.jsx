@@ -1,5 +1,4 @@
-/* eslint-disable react/prop-types */
-const FormInput = ({label, name, type, defaultValue, size}) => {
+const FormInput = ({ label, name, type, defaultValue, size }) => {
   return (
     <div className='form-control'>
       <label htmlFor={name} className='label'>
@@ -10,7 +9,6 @@ const FormInput = ({label, name, type, defaultValue, size}) => {
         name={name}
         defaultValue={defaultValue}
         className={`input input-bordered ${size}`}
-        autoComplete=''
       />
     </div>
   );

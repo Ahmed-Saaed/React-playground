@@ -1,10 +1,10 @@
-import {useLoaderData, useLocation, useNavigate} from 'react-router-dom';
+import { useLoaderData, useLocation, useNavigate } from 'react-router-dom';
 
 const ComplexPaginationContainer = () => {
-  const {meta} = useLoaderData();
-  const {pageCount, page} = meta.pagination;
+  const { meta } = useLoaderData();
+  const { pageCount, page } = meta.pagination;
 
-  const {search, pathname} = useLocation();
+  const { search, pathname } = useLocation();
   const navigate = useNavigate();
   const handlePageChange = (pageNumber) => {
     const searchParams = new URLSearchParams(search);
@@ -12,7 +12,7 @@ const ComplexPaginationContainer = () => {
     navigate(`${pathname}?${searchParams.toString()}`);
   };
 
-  const addPageButton = ({pageNumber, activeClass}) => {
+  const addPageButton = ({ pageNumber, activeClass }) => {
     return (
       <button
         key={pageNumber}
@@ -29,7 +29,7 @@ const ComplexPaginationContainer = () => {
   const renderPageButtons = () => {
     const pageButtons = [];
     // first button
-    pageButtons.push(addPageButton({pageNumber: 1, activeClass: page === 1}));
+    pageButtons.push(addPageButton({ pageNumber: 1, activeClass: page === 1 }));
 
     // dots
     if (page > 2) {
@@ -42,7 +42,7 @@ const ComplexPaginationContainer = () => {
 
     // active/current page
     if (page !== 1 && page !== pageCount) {
-      pageButtons.push(addPageButton({pageNumber: page, activeClass: true}));
+      pageButtons.push(addPageButton({ pageNumber: page, activeClass: true }));
     }
     // dots
     if (page < pageCount - 1) {
@@ -55,7 +55,7 @@ const ComplexPaginationContainer = () => {
 
     // last button
     pageButtons.push(
-      addPageButton({pageNumber: pageCount, activeClass: page === pageCount})
+      addPageButton({ pageNumber: pageCount, activeClass: page === pageCount })
     );
     return pageButtons;
   };

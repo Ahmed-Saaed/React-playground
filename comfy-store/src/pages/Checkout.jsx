@@ -1,7 +1,7 @@
-import {useSelector} from 'react-redux';
-import {CheckoutForm, SectionTitle, CartTotals} from '../components';
-import {toast} from 'react-toastify';
-import {redirect} from 'react-router-dom';
+import { useSelector } from 'react-redux';
+import { CheckoutForm, SectionTitle, CartTotals } from '../components';
+import { toast } from 'react-toastify';
+import { redirect } from 'react-router-dom';
 
 export const loader = (store) => () => {
   const user = store.getState().userState.user;
